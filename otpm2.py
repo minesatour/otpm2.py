@@ -6,7 +6,8 @@ import time
 import random
 import tkinter as tk
 from tkinter import messagebox, simpledialog
-import winsound  # Windows only, replace with other notification system for Linux/Mac
+import os
+import platform
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -74,7 +75,14 @@ class OTPGUI:
     def update_otp(self, otp):
         store_otp(otp)
         self.otp_label.config(text=f"Captured OTP: {otp}")
-        winsound.Beep(1000, 500)  # Notification sound
+        if platform.system() == "Linux":
+    os.system("play -nq -t alsa synth 0.5 sine 1000")  # Requires `sox` package
+elif platform.system() == "Darwin":  # macOS
+    os.system("afplay /System/Library/Sounds/Ping.aiff")
+else:  # Windows
+    import winsound
+    winsound.Beep(1000, 500)
+
         messagebox.showinfo("OTP Captured", f"OTP: {otp}")
 
 # Load allowed sites from a file
