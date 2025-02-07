@@ -1,6 +1,6 @@
 selenium==4.14.0
 selenium-stealth==1.0.6
 mitmproxy==9.0.1
-tkinterweb==3.23
+tkinterweb>=3.23
 requests==2.31.0
 sqlite3  # Built-in with Python, but keep it for clarity
