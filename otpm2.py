@@ -39,7 +39,8 @@ def setup_browser():
     return driver
 
 # Capture OTPs using mitmproxy
-def intercept_otp(request: mitmproxy.http.HTTPRequest):
+def intercept_otp(flow: mitmproxy.http.HTTPFlow):
+
     # Check for OTP patterns in intercepted traffic
     otp_keywords = ["otp", "verification", "code", "2fa", "token"]
     otp_data = ""
