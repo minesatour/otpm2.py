@@ -1,0 +1,24 @@
+# Ignore database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment files
+.env
+.vscode/
+.idea/
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Selenium driver binaries (if stored locally)
+chromedriver
+geckodriver
